@@ -1,0 +1,13 @@
+#extend("Layouts/base"):
+    #export("nav"):
+        #extend("Components/nav")
+    #endexport
+
+    #export("content"):
+        <h1 style="padding: 24px;">Hello world!</h1>
+    #endexport
+
+    #export("aside"):
+        #extend("Components/aside")
+    #endexport
+#endextend

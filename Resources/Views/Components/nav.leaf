@@ -1,0 +1,17 @@
+<nav>
+  <a href="/" #if(isActive == "Home"):class="active" #endif>
+      #extend("Components/Icons/home")
+  </a>
+  <a href="#">
+      #extend("Components/Icons/search")
+  </a>
+  <a href="/notifications" #if(isActive == "Notificaiton"):class="active" #endif>
+      #extend("Components/Icons/bell")
+  </a>
+  <a href="/messages" #if(isActive == "Send"):class="active" #endif>
+      #extend("Components/Icons/send")
+  </a>
+  <a href="/bookmarks" #if(isActive == "Bookmark"):class="active" #endif>
+      #extend("Components/Icons/bookmark")
+  </a>
+</nav>

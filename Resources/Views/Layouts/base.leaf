@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>#(title)</title>
-    <meta name="description" content="Deploying a Vapor Swift App on Web">
+    <title>Minimal social</title>
+    <meta name="description" content="A simple, distraction free platform for professionals">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <main>
-        <nav>
-            navbar
-        </nav>
+        #import("nav")
         <div class="container">
-            content
+            #import("content")
         </div>
-        <aside>
-            aside
-        </aside>
+        #import("aside")
     </main>
 </body>
 </html>
