@@ -1,17 +1,17 @@
 <nav>
-  <a href="/" #if(isActive == "Home"):class="active" #endif>
+  <a href="/" #if(isActive == "Home"):class="active" #endif aria-label="Home page">
       #extend("Components/Icons/home")
   </a>
-  <a href="#">
+  <a href="#" aria-label="Search">
       #extend("Components/Icons/search")
   </a>
-  <a href="/notifications" #if(isActive == "Notificaiton"):class="active" #endif>
+  <a href="/notifications" #if(isActive == "Notificaiton"):class="active" #endif aria-label="Notifications page">
       #extend("Components/Icons/bell")
   </a>
-  <a href="/messages" #if(isActive == "Send"):class="active" #endif>
+  <a href="/messages" #if(isActive == "Send"):class="active" #endif aria-label="Messages page">
       #extend("Components/Icons/send")
   </a>
-  <a href="/bookmarks" #if(isActive == "Bookmark"):class="active" #endif>
+  <a href="/bookmarks" #if(isActive == "Bookmark"):class="active" #endif aria-label="Bookmarks page">
       #extend("Components/Icons/bookmark")
   </a>
 </nav>
