@@ -8,8 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <main class="container">
-        <h1>#(title)</h1>
+    <main>
+        <nav>
+            navbar
+        </nav>
+        <div class="container">
+            content
+        </div>
+        <aside>
+            aside
+        </aside>
     </main>
 </body>
 </html>
