@@ -3,7 +3,7 @@ import Vapor
 func routes(_ app: Application) throws {
     app.get { req -> EventLoopFuture<View> in
         let context: [String: String] = [
-            "isActive": "Home"
+            "activePage": "Home"
         ]
 
         return req.view.render("Pages/index", context)
@@ -11,7 +11,7 @@ func routes(_ app: Application) throws {
 
     app.get("notifications") { req -> EventLoopFuture<View> in
         let context: [String: String] = [
-            "isActive": "Bell"
+            "activePage": "Bell"
         ]
 
         return req.view.render("Pages/notifications", context)
@@ -19,7 +19,7 @@ func routes(_ app: Application) throws {
 
     app.get("messages") { req -> EventLoopFuture<View> in
         let context: [String: String] = [
-            "isActive": "Send"
+            "activePage": "Send"
         ]
 
         return req.view.render("Pages/messages", context)
@@ -27,7 +27,7 @@ func routes(_ app: Application) throws {
 
     app.get("bookmarks") { req -> EventLoopFuture<View> in
         let context: [String: String] = [
-            "isActive": "Bookmark"
+            "activePage": "Bookmark"
         ]
 
         return req.view.render("Pages/bookmarks", context)

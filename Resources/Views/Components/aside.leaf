@@ -1,3 +1,15 @@
 <aside>
-  aside
+  <div>
+    <h1>Minimal Social</h1>
+    <p>A simple, distraction free platform for professionals</p>
+    <div class="useful-links">
+      <a href="#">About</a>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+    <button>
+      #extend("Components/Icons/Filled/heart")
+      Become a supporter
+    </button>
+  </div>
 </aside>
