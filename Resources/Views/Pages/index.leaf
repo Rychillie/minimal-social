@@ -4,7 +4,26 @@
     #endexport
 
     #export("content"):
-        <h1 style="padding: 24px;">Hello world!</h1>
+        <header>
+            <button data-tab-target="#highlights" class="active tab">Highlights</button>
+            <button data-tab-target="#following" class="tab">Following</button>
+            <button data-tab-target="#everyone" class="tab">Everyone</button>
+        </header>
+
+        <div class="tab-content">
+            <section id="highlights" data-tab-content class="active">
+              <h1>Highlights</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </section>
+            <section id="following" data-tab-content>
+              <h1>Following</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </section>
+            <section id="everyone" data-tab-content>
+              <h1>Everyone</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </section>
+        </div>
     #endexport
 
     #export("aside"):

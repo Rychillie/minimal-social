@@ -50,6 +50,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   border-top: 1px solid var(--neutral-200);
+  background-color: var(--neutral-50);
   height: -moz-fit-content;
   height: fit-content;
   z-index: 999;
@@ -91,6 +92,58 @@ nav a.active {
   position: relative;
   min-height: 100vh;
   flex:1;
+}
+
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--neutral-200);
+  background-color: var(-neutral-50);
+  gap: 20px;
+}
+
+header button.tab {
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  min-width: 80px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: -1px;
+  border-bottom: 1px solid transparent;
+  transition: all 300ms ease-in-out;
+  font-weight: 500;
+  opacity: 1;
+}
+
+header button.tab.active {
+  color: var(--neutral-950);
+  border-bottom: 1px solid var(--neutral-600);
+}
+
+header button.tab:hover {
+  opacity: 0.80;
+}
+
+header button.tab:active {
+  opacity: 0.64;
+}
+
+.tab-content {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 aside {
@@ -216,6 +269,10 @@ aside button:active {
     color: var(--neutral-400);
   }
 
+  nav {
+    background-color: var(--neutral-900);
+  }
+
   nav,
   .container {
     border-color: var(--neutral-800);
@@ -235,6 +292,16 @@ aside button:active {
   
   nav a.active {
     color: var(--neutral-50);
+  }
+
+  header {
+    border-bottom: 1px solid var(--neutral-800);
+    background-color: var(-neutral-900);
+  }
+  
+  header button.tab.active {
+    color: var(--neutral-50);
+    border-color: var(--neutral-400);
   }
 
   aside .useful-links h1 {

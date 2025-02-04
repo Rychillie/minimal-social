@@ -15,5 +15,44 @@
         </div>
         #import("aside")
     </main>
+
+    <script>
+        const tabs = document.querySelectorAll('[data-tab-target]')
+        const tabContents = document.querySelectorAll('[data-tab-content]')
+
+        // Retrieve the saved tab from local storage
+        const savedTab = localStorage.getItem('activeTab');
+        if (savedTab) {
+            // Clear all active states before setting the saved tab
+            tabContents.forEach(tabContent => {
+                tabContent.classList.remove('active');
+            });
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            const target = document.querySelector(savedTab);
+            if (target) {
+                target.classList.add('active');
+                document.querySelector(`[data-tab-target="${savedTab}"]`).classList.add('active');
+            }
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document.querySelector(tab.dataset.tabTarget);
+                tabContents.forEach(tabContent => {
+                    tabContent.classList.remove('active');
+                });
+
+                tabs.forEach(tab => { tab.classList.remove('active'); });
+                tab.classList.add('active');
+                target.classList.add('active');
+
+                // Save the selected tab to local storage
+                localStorage.setItem('activeTab', tab.dataset.tabTarget);
+            });
+        });
+    </script>
 </body>
 </html>
