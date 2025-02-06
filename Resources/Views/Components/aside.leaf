@@ -7,9 +7,15 @@
       <a href="#">Terms</a>
       <a href="#">Privacy</a>
     </div>
+    #if(authenticated):
+      <button class="success">
+        #extend("Components/Icons/Filled/heart")
+        Become a supporter
+      </button>
+    #else:
     <button>
-      #extend("Components/Icons/Filled/heart")
-      Become a supporter
+      Login
     </button>
+    #endif
   </div>
 </aside>

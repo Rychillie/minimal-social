@@ -2,9 +2,10 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get { req -> EventLoopFuture<View> in
-        let context: [String: String] = [
-            "activePage": "Home"
-        ]
+        let context = PageContext(
+            activePage: "Home",
+            authenticated: true
+        )
 
         return req.view.render("Pages/index", context)
     }
@@ -32,4 +33,9 @@ func routes(_ app: Application) throws {
 
         return req.view.render("Pages/bookmarks", context)
     }
+}
+
+struct PageContext: Encodable {
+    let activePage: String
+    let authenticated: Bool
 }
