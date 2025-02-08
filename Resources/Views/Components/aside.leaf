@@ -13,9 +13,9 @@
         Become a supporter
       </button>
     #else:
-    <button>
-      Login
-    </button>
+      <button class="mono">
+        Signin to Minimal
+      </button>
     #endif
   </div>
 </aside>

@@ -1,0 +1,33 @@
+<dialog class="auth">
+    <div class="steps">
+        <div class="options">
+            <h3>
+                Login to your account
+                <span role="img" aria-label="wave" style="white-space: nowrap;">&nbsp;👋</span>
+            </h3>
+            <p>
+                By continuing you agree to our <a href="#" target="_blank">terms of service</a> and <a href="#" target="_blank">privacy policy</a>.
+            </p>
+    
+            <div class="auth-group">
+                <button class="signin-google" data-style="normal" data-loading="false">
+                    #extend("Components/Icons/google")
+                    Continue with Google
+                </button>
+                <button class="signin-apple" data-style="normal" data-loading="false">
+                    #extend("Components/Icons/apple")
+                    Continue with Apple
+                </button>
+                <button class="signin-magic-link" data-style="normal" data-loading="false">
+                    Continue with email
+                </button>
+            </div>
+        </div>
+        <div class="email">
+            <button class="back" data-mobile="false">Back</button>
+        </div>
+        <div class="check">
+    
+        </div>
+    </div>
+</dialog>

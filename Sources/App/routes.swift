@@ -4,7 +4,7 @@ func routes(_ app: Application) throws {
     app.get { req -> EventLoopFuture<View> in
         let context = PageContext(
             activePage: "Home",
-            authenticated: true
+            authenticated: false
         )
 
         return req.view.render("Pages/index", context)

@@ -16,9 +16,50 @@
         #import("aside")
     </main>
 
+    #extend("Components/Dialogs/auth")
+
     <script>
         const tabs = document.querySelectorAll('[data-tab-target]')
         const tabContents = document.querySelectorAll('[data-tab-content]')
+        
+        const dialogAuth = document.querySelector("dialog.auth");
+        const showButton = document.querySelector("button.mono");
+        const useMagicLink = document.querySelector("button.signin-magic-link");
+        const steps = document.querySelector("dialog.auth .steps");
+        const emailBack = document.querySelector("dialog.auth .steps .email button.back");
+        
+        steps.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        showButton.addEventListener("click", () => {
+            steps.style.transition = 'none';
+            steps.style.transform = 'translateX(0%) translateZ(0px)';
+            
+            void steps.offsetWidth;
+            
+            steps.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            dialogAuth.showModal();
+        });
+
+        useMagicLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            steps.style.transform = 'translateX(-33.33%) translateZ(0px)';
+        });
+
+        emailBack.addEventListener("click", (e) => {
+            e.preventDefault();
+            steps.style.transform = 'translateX(0%) translateZ(0px)';
+        });
+
+        // Close the dialog when the backdrop is clicked
+        dialogAuth.addEventListener('click', function(event) {
+            var rect = dialogAuth.getBoundingClientRect();
+            
+            var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+
+            if (!isInDialog) {
+                dialogAuth.close();
+            }
+        });
 
         // Retrieve the saved tab from local storage
         const savedTab = localStorage.getItem('activeTab');
