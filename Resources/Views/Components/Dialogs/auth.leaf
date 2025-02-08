@@ -14,20 +14,43 @@
                     #extend("Components/Icons/google")
                     Continue with Google
                 </button>
+
                 <button class="signin-apple" data-style="normal" data-loading="false">
                     #extend("Components/Icons/apple")
                     Continue with Apple
                 </button>
+                
                 <button class="signin-magic-link" data-style="normal" data-loading="false">
                     Continue with email
                 </button>
             </div>
         </div>
+
         <div class="email">
-            <button class="back" data-mobile="false">Back</button>
+            <h3>Continue with an email link<span role="img" aria-label="heart envelope" style="white-space: nowrap;">&nbsp;💌</span></h3>
+            <p>Enter your email and we'll send you a link to login to your account.</p>
+            
+            <input
+                autocomplete="chrome-off"
+                type="email"
+                spellcheck="false"
+                placeholder="Email address"
+                data-lowercase="false"
+                value=""
+                data-error="false"
+            />
+            
+            <div class="group-buttons">
+                <button class="back" data-mobile="false">Back</button>
+                <button class="next" data-mobile="false">Submit</button>
+            </div>
         </div>
+
         <div class="check">
-    
+            <div class="group-buttons">
+                <button class="back" data-mobile="false">Back</button>
+                <button class="next" data-mobile="false">Done</button>
+            </div>
         </div>
     </div>
 </dialog>

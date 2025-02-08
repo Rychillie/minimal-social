@@ -27,6 +27,9 @@
         const useMagicLink = document.querySelector("button.signin-magic-link");
         const steps = document.querySelector("dialog.auth .steps");
         const emailBack = document.querySelector("dialog.auth .steps .email button.back");
+        const emailNext = document.querySelector("dialog.auth .steps .email button.next");
+        const checkBack = document.querySelector("dialog.auth .steps .check button.back");
+        const checkNext = document.querySelector("dialog.auth .steps .check button.next");
         
         steps.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
 
@@ -48,6 +51,16 @@
         emailBack.addEventListener("click", (e) => {
             e.preventDefault();
             steps.style.transform = 'translateX(0%) translateZ(0px)';
+        });
+
+        emailNext.addEventListener("click", (e) => {
+            e.preventDefault();
+            steps.style.transform = 'translateX(-66.66%) translateZ(0px)';
+        });
+
+        checkBack.addEventListener("click", (e) => {
+            e.preventDefault();
+            steps.style.transform = 'translateX(-33.33%) translateZ(0px)';
         });
 
         // Close the dialog when the backdrop is clicked
