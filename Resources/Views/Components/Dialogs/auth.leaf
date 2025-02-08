@@ -42,7 +42,7 @@
             
             <div class="group-buttons">
                 <button class="back" data-mobile="false">Back</button>
-                <button class="next" data-mobile="false">Submit</button>
+                <button class="next" data-mobile="false" disabled>Submit</button>
             </div>
         </div>
 

@@ -27,11 +27,26 @@
         const useMagicLink = document.querySelector("button.signin-magic-link");
         const steps = document.querySelector("dialog.auth .steps");
         const emailBack = document.querySelector("dialog.auth .steps .email button.back");
-        const emailNext = document.querySelector("dialog.auth .steps .email button.next");
+        const emailInput = document.querySelector('dialog.auth .steps .email input[type="email"]');
+        const emailSubmit = document.querySelector('dialog.auth .steps .email button.next');
         const checkBack = document.querySelector("dialog.auth .steps .check button.back");
         const checkNext = document.querySelector("dialog.auth .steps .check button.next");
         
         steps.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function updateSubmitButton() {
+            const isValid = validateEmail(emailInput.value);
+            emailSubmit.disabled = !isValid;
+            
+            // Atualizar classes para feedback visual
+            emailInput.classList.toggle('invalid', !isValid);
+            emailSubmit.classList.toggle('valid', isValid);
+        }
 
         showButton.addEventListener("click", () => {
             steps.style.transition = 'none';
@@ -53,8 +68,23 @@
             steps.style.transform = 'translateX(0%) translateZ(0px)';
         });
 
-        emailNext.addEventListener("click", (e) => {
+        emailInput.addEventListener('input', () => {
+            updateSubmitButton();
+            
+            // Remover mensagem de erro enquanto digita
+            emailInput.removeAttribute('data-error');
+        });
+        
+        emailSubmit.addEventListener('click', (e) => {
             e.preventDefault();
+            
+            if (!validateEmail(emailInput.value)) {
+                emailInput.setAttribute('data-error', 'true');
+                return;
+            }
+            
+            // Simular envio (substitua por chamada AJAX)
+            console.log('Email submitted:', emailInput.value);
             steps.style.transform = 'translateX(-66.66%) translateZ(0px)';
         });
 
