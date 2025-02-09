@@ -95,9 +95,6 @@
                 `;
                 emailSubmit.disabled = true;
 
-                // Capturar tempo inicial
-                const startTime = Date.now();
-
                 // Chamada à API
                 const response = await fetch('/auth/magic-link', {
                     method: 'POST',
@@ -108,15 +105,9 @@
                     body: JSON.stringify({ email: emailInput.value })
                 });
 
-                // Garantir que o loading seja visível por pelo menos 1.5 segundos
-                const elapsedTime = Date.now() - startTime;
-                const minLoadingTime = 1500; // 1.5 segundos
-                const delay = Math.max(0, minLoadingTime - elapsedTime);
-
-                await new Promise(resolve => setTimeout(resolve, delay));
-
                 // Verificar se o corpo da resposta é JSON válido
                 let data;
+                
                 try {
                     data = await response.json();
                 } catch (e) {

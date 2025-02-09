@@ -35,21 +35,21 @@ func routes(_ app: Application) throws {
     }
 
     app.post("auth", "magic-link") { req -> EventLoopFuture<HTTPStatus> in
-    struct MagicLinkRequest: Content {
-        let email: String
-    }
-    
-    let request = try req.content.decode(MagicLinkRequest.self)
+        struct MagicLinkRequest: Content {
+            let email: String
+        }
+        
+        let request = try req.content.decode(MagicLinkRequest.self)
 
-    print("EMAIL: \(request.email)")
-    
-    // 1. Gerar token
-    // 2. Salvar no banco
-    // 3. Enviar email
-    // 4. Retornar resposta
-    
-    return req.eventLoop.makeSucceededFuture(.ok)
-}
+        print("EMAIL: \(request.email)")
+        
+        // 1. Gerar token
+        // 2. Salvar no banco
+        // 3. Enviar email
+        // 4. Retornar resposta
+        
+        return req.eventLoop.makeSucceededFuture(.ok)
+    }
 }
 
 struct PageContext: Encodable {
