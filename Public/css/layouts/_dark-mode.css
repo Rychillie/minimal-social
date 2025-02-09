@@ -1,0 +1,162 @@
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: var(--neutral-900);
+        color: var(--neutral-400);
+    }
+  
+    nav {
+        background-color: var(--neutral-900);
+    }
+  
+    nav,
+    .container {
+        border-color: var(--neutral-800);
+    }
+  
+    nav a {
+        color: var(--neutral-400);
+    }
+    
+    nav a:hover {
+        color: var(--neutral-200);
+    }
+    
+    nav a:active {
+        color: var(--neutral-100);
+    }
+    
+    nav a.active {
+        color: var(--neutral-50);
+    }
+  
+    header {
+        border-bottom: 1px solid var(--neutral-800);
+        background-color: var(--neutral-900);
+    }
+    
+    header button.tab.active {
+        color: var(--neutral-50);
+        border-color: var(--neutral-400);
+    }
+  
+    aside h1 {
+        color: var(--neutral-50)
+    }
+  
+    aside .useful-links a {
+        color: var(--neutral-50);
+    }
+  
+    aside button.mono {
+        background-color: var(--neutral-50);
+        color: var(--neutral-950)
+    }
+  
+    aside button.mono:hover {
+        background-color: var(--neutral-200);
+    }
+  
+    aside button.mono:active {
+        background-color: var(--neutral-400);
+    }
+  
+    aside button.success {
+        background: rgba(5, 46, 22, 0.80);
+        color: rgba(123, 241, 168, 1);
+    }
+    
+    aside button.success:hover {
+        background: rgba(5, 46, 22, 0.56);
+        color: rgba(123, 241, 168, 0.80);
+    }
+    
+    aside button.success:active {
+        background: rgba(5, 46, 22, 0.24);
+        color: rgba(123, 241, 168, 0.56);
+    }
+  
+    .logo-apple {
+        color: var(--neutral-50);
+    }
+  
+    dialog {
+        background-color: var(--neutral-900);
+    }
+  
+    dialog h3 {
+        color: var(--neutral-50);
+    }
+  
+    dialog p {
+        color: var(--neutral-400);
+    }
+  
+    dialog a {
+        color: var(--neutral-50);
+    }
+  
+    dialog .auth-group button {
+        color: var(--neutral-50);
+        background-color: var(--neutral-900);
+    }
+    
+    dialog .auth-group button:hover {
+        background-color: var(--neutral-800);
+    }
+    
+    dialog .auth-group button:active {
+        background-color: var(--neutral-700);
+    }
+    
+    dialog .auth-group button.signin-google,
+    dialog .auth-group button.signin-apple {
+        border: 1px solid var(--neutral-700);
+    }
+  
+    dialog.auth .steps input {
+        background-color: var(--neutral-800);
+        color: var(--neutral-50);
+    }
+    
+    dialog.auth .steps input::placeholder {
+        color: var(--neutral-400);
+    }
+    
+    dialog.auth .steps input:not(:focus):hover {
+        background-color: var(--neutral-700);
+        border-color: var(--neutral-600);
+    }
+    
+    dialog.auth .steps input:focus {
+        background-color: var(--neutral-700);
+        border-color: var(--neutral-400);
+    }
+  
+    dialog.auth .steps .group-buttons button {
+        color: var(--neutral-50);
+    }
+  
+    dialog.auth .steps .group-buttons button.next {
+        background-color: var(--neutral-800);
+    }
+    
+    dialog.auth .steps .group-buttons button.next:hover:not([disabled]) {
+        background-color: var(--neutral-700);
+    }
+    
+    dialog.auth .steps .group-buttons button.next:active:not([disabled]) {
+        background-color: var(--neutral-600);
+    }
+    
+    dialog.auth .steps .group-buttons button.back:hover {
+        background-color: var(--neutral-800);
+    }
+    
+    dialog.auth .steps .group-buttons button.back:active {
+        background-color: var(--neutral-700);
+    }
+  
+    dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.64);
+    }
+}

@@ -1,0 +1,180 @@
+dialog {
+    max-width: 90%;
+    height: fit-content;
+    background-color: var(--neutral-50);
+    border-radius: 16px;
+    min-height: 120px;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(-50%) translateZ(0px);
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+dialog h3 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--neutral-950);
+}
+
+dialog p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--neutral-600);
+}
+
+dialog a {
+    color: var(--neutral-950);
+}
+
+dialog .steps {
+    width: 300%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    will-change: transform;
+}
+
+dialog .steps>div {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+dialog .auth-group {
+    margin: 16px 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+dialog .auth-group button {
+    appearance: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-950);
+    background-color: var(--neutral-50);
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    transition: all 300ms ease-in-out;
+}
+
+dialog .auth-group button:hover {
+    background-color: var(--neutral-100);
+}
+
+dialog .auth-group button:active {
+    background-color: var(--neutral-200);
+}
+
+dialog .auth-group button.signin-google,
+dialog .auth-group button.signin-apple {
+    border: 1px solid var(--neutral-200);
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    margin: 4px 0;
+    gap: 8px;
+}
+
+dialog .auth-group button.signin-magic-link {
+    border: none;
+    margin-top: 4px;
+}
+
+dialog.auth .steps input {
+    appearance: none;
+    background-color: var(--neutral-200);
+    color: var(--neutral-950);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 300ms ease-in-out;
+    margin: 12px 0;
+    font-size: 16px;
+    line-height: 24px;
+    height: 40px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    outline: none;
+}
+
+dialog.auth .steps input::placeholder {
+    color: var(--neutral-600);
+}
+
+dialog.auth .steps input:not(:focus):hover {
+    background-color: var(--neutral-200);
+    border-color: var(--neutral-400);
+}
+
+dialog.auth .steps input:focus {
+    background-color: var(--neutral-200);
+    border-color: var(--neutral-500);
+}
+
+dialog.auth .steps .group-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+dialog.auth .steps .group-buttons button {
+    transition: all 300ms ease-in-out;
+    color: var(--neutral-950);
+    border-radius: 8px;
+    padding: 0 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+}
+
+dialog.auth .steps .group-buttons button:disabled {
+    opacity: 0.64;
+    cursor: default;
+    user-select: none;
+}
+
+dialog.auth .steps .group-buttons button.next {
+    font-weight: 500;
+    background-color: var(--neutral-200);
+}
+
+dialog.auth .steps .group-buttons button.next:hover:not([disabled]) {
+    background-color: var(--neutral-300);
+}
+
+dialog.auth .steps .group-buttons button.next:active:not([disabled]) {
+    background-color: var(--neutral-400);
+}
+
+dialog.auth .steps .group-buttons button.back {
+    background-color: transparent;
+}
+
+dialog.auth .steps .group-buttons button.back:hover {
+    background-color: var(--neutral-100);
+}
+
+dialog.auth .steps .group-buttons button.back:active {
+    background-color: var(--neutral-200);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.56);
+    will-change: opacity;
+}
