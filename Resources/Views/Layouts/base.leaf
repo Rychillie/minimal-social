@@ -19,9 +19,10 @@
     #extend("Components/Dialogs/auth")
 
     <script>
+        const checkSection = document.querySelector("dialog.auth .steps .check");
+        const checkMessage = checkSection.querySelector('.check-message');
         const tabs = document.querySelectorAll('[data-tab-target]')
         const tabContents = document.querySelectorAll('[data-tab-content]')
-        
         const dialogAuth = document.querySelector("dialog.auth");
         const showButton = document.querySelector("button.mono");
         const useMagicLink = document.querySelector("button.signin-magic-link");
@@ -75,7 +76,7 @@
             emailInput.removeAttribute('data-error');
         });
         
-        emailSubmit.addEventListener('click', (e) => {
+        emailSubmit.addEventListener('click', async (e) => {
             e.preventDefault();
             
             if (!validateEmail(emailInput.value)) {
@@ -83,9 +84,75 @@
                 return;
             }
             
-            // Simular envio (substitua por chamada AJAX)
-            console.log('Email submitted:', emailInput.value);
-            steps.style.transform = 'translateX(-66.66%) translateZ(0px)';
+            try {
+                // Estado de loading
+                emailSubmit.innerHTML = `
+                    <span class="loading">
+                        <span style="background-color: #000;"></span>
+                        <span style="background-color: #000;"></span>
+                        <span style="background-color: #000;"></span>
+                    </span>
+                `;
+                emailSubmit.disabled = true;
+
+                // Capturar tempo inicial
+                const startTime = Date.now();
+
+                // Chamada à API
+                const response = await fetch('/auth/magic-link', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ email: emailInput.value })
+                });
+
+                // Garantir que o loading seja visível por pelo menos 1.5 segundos
+                const elapsedTime = Date.now() - startTime;
+                const minLoadingTime = 1500; // 1.5 segundos
+                const delay = Math.max(0, minLoadingTime - elapsedTime);
+
+                await new Promise(resolve => setTimeout(resolve, delay));
+
+                // Verificar se o corpo da resposta é JSON válido
+                let data;
+                try {
+                    data = await response.json();
+                } catch (e) {
+                    console.warn("⚠️ A resposta da API não é um JSON válido.");
+                    data = {}; // Garante que data sempre existe
+                }
+
+                console.log("🔍 Resposta da API:", response.status, data);
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Failed to send magic link');
+                }
+
+                // Sucesso - atualizar check section
+                checkMessage.innerHTML = `
+                    <h3>Check your email<span role="img" aria-label="mailbox">📭</span></h3>
+                    <p>We sent a magic link to <strong>${emailInput.value}</strong></p>
+                    <p class="hint">Click the link in the email to login.</p>
+                `;
+
+                steps.style.transform = 'translateX(-66.66%) translateZ(0px)';
+                
+            } catch (error) {
+                console.error("❌ Erro ao enviar email:", error.message);
+                emailInput.setAttribute('data-error', 'true');
+                checkMessage.innerHTML = `
+                    <h3>Error sending email<span role="img" aria-label="error">❌</span></h3>
+                    <p>Failed to send magic link to <strong>${emailInput.value}</strong></p>
+                    <p class="hint">Please try again later.</p>
+                `;
+                steps.style.transform = 'translateX(-66.66%) translateZ(0px)';
+            } finally {
+                // Resetar estado
+                emailSubmit.textContent = 'Submit';
+                emailSubmit.disabled = false;
+            }
         });
 
         checkBack.addEventListener("click", (e) => {
@@ -102,6 +169,12 @@
             if (!isInDialog) {
                 dialogAuth.close();
             }
+        });
+
+        dialogAuth.addEventListener('close', () => {
+            steps.style.transform = 'translateX(0%) translateZ(0px)';
+            emailInput.value = '';
+            emailSubmit.disabled = true;
         });
 
         // Retrieve the saved tab from local storage

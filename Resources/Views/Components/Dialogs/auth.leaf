@@ -47,6 +47,9 @@
         </div>
 
         <div class="check">
+            <div class="check-message">
+                <!-- Conteúdo será injetado via JS -->
+            </div>
             <div class="group-buttons">
                 <button class="back" data-mobile="false">Back</button>
                 <button class="next" data-mobile="false">Done</button>

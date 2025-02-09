@@ -135,6 +135,9 @@ dialog.auth .steps .group-buttons {
 }
 
 dialog.auth .steps .group-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 300ms ease-in-out;
     color: var(--neutral-950);
     border-radius: 8px;
@@ -154,6 +157,7 @@ dialog.auth .steps .group-buttons button:disabled {
 dialog.auth .steps .group-buttons button.next {
     font-weight: 500;
     background-color: var(--neutral-200);
+    min-width: 80px;
 }
 
 dialog.auth .steps .group-buttons button.next:hover:not([disabled]) {
@@ -166,6 +170,7 @@ dialog.auth .steps .group-buttons button.next:active:not([disabled]) {
 
 dialog.auth .steps .group-buttons button.back {
     background-color: transparent;
+    min-width: 60px;
 }
 
 dialog.auth .steps .group-buttons button.back:hover {
@@ -179,4 +184,83 @@ dialog.auth .steps .group-buttons button.back:active {
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.56);
     will-change: opacity;
+}
+
+.check-message {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.check-message .hint {
+    color: var(--neutral-500);
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+dialog.auth .steps input[data-error="true"] {
+    border-color: #ff4444 !important;
+    background-color: #fff6f6 !important;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Ajuste o check section */
+.check > div.check-message {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.check button.next {
+    margin-top: auto;
+}
+
+.loading {
+    display: inline-flex;
+    align-items: center;
+}
+
+.loading .spacer {
+    margin-right: 2px;
+}
+
+.loading span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.loading span:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+
+.loading span:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
 }
