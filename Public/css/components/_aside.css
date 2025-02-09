@@ -1,11 +1,30 @@
 aside {
-    top: 0;
-    height: 100vh;
-    position: -webkit-sticky;
-    position: sticky;
-    display: none;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    z-index: 999;
+    position: fixed;
+    display: flex;
     flex-direction: column;
+    background-color: var(--neutral-50);
+    border-top: 1px solid var(--neutral-200);
+    text-align: center;
     padding: 24px;
+    transform-style: preserve-3d;
+}
+
+aside::before {
+    content: "";
+    position: fixed;
+    transform: translateZ(-1px);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.56);
 }
 
 aside h1 {
@@ -25,6 +44,8 @@ aside p {
 
 aside .useful-links {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 4px;
     gap: 8px;
 }
@@ -37,6 +58,7 @@ aside .useful-links a {
 }
 
 aside button {
+    max-width: 375px;
     appearance: none;
     background: transparent;
     border: 0;
@@ -52,6 +74,8 @@ aside button {
     padding-top: 8px;
     padding-bottom: 8px;
     margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
     transition: all 300ms ease-in-out;
 }
 

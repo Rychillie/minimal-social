@@ -4,13 +4,13 @@ main {
     width: 100%;
     max-width: calc(256px + 640px + 256px);
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     position: relative;
-    min-height: 100vh;
+    min-height: 100dvh;
     flex:1;
 }

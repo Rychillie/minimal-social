@@ -40,7 +40,26 @@
     }
 
     aside {
+        top: 0;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        height: 100dvh;
+        position: -webkit-sticky;
+        text-align: left;
+        border-top: none;
+        position: sticky;
         display: flex;
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    aside::before {
+        display: none;
+    }
+
+    aside .useful-links {
+        justify-content: flex-start;
     }
 }
 

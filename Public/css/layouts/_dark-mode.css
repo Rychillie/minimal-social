@@ -38,6 +38,15 @@
         color: var(--neutral-50);
         border-color: var(--neutral-400);
     }
+
+    aside {
+        background-color: var(--neutral-900);
+        border-color: var(--neutral-800);
+    }
+
+    aside::before {
+        background-color: rgba(0, 0, 0, 0.64);
+    }
   
     aside h1 {
         color: var(--neutral-50)
