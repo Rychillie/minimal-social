@@ -18,9 +18,6 @@ let package = Package(
             dependencies: [
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "Vapor", package: "vapor"),
-            ],
-            exclude: [
-                "Views"
             ]
         ),
         .testTarget(
