@@ -18,6 +18,12 @@ let package = Package(
             dependencies: [
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "Vapor", package: "vapor"),
+            ],
+            exclude: [ // Exclui a pasta Views da compilação
+                "Views"
+            ],
+            resources: [ // Inclui os arquivos .leaf como recursos
+                .process("Views")
             ]
         ),
         .testTarget(
