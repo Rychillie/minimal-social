@@ -18,12 +18,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "Vapor", package: "vapor"),
-            ],
-            resources: [
-                .copy("Views"),
-                .copy("Public"),
-            ],
-            swiftSettings: swiftSettings
+            ]
         ),
         .testTarget(
             name: "AppTests",
@@ -38,26 +33,3 @@ let package = Package(
     ]
     
 )
-
-let swiftSettings: [SwiftSetting] = [
-    // Flags to enable Swift 6 compatibility
-    .enableUpcomingFeature("BareSlashRegexLiterals"),
-    .enableUpcomingFeature("ConciseMagicFile"),
-    .enableUpcomingFeature("ForwardTrailingClosures"),
-    .enableUpcomingFeature("ImportObjcForwardDeclarations"),
-    .enableUpcomingFeature("DisableOutwardActorInference"),
-    .enableUpcomingFeature("ExistentialAny"),
-    .enableUpcomingFeature("DeprecateApplicationMain"),
-    .enableUpcomingFeature("GlobalConcurrency"),
-    .enableUpcomingFeature("IsolatedDefaultValues"),
-    .enableExperimentalFeature("StrictConcurrency"),
-    // Flags to warn about the type checking getting too slow
-    .unsafeFlags(
-        [
-            "-Xfrontend",
-            "-warn-long-function-bodies=100",
-            "-Xfrontend",
-            "-warn-long-expression-type-checking=100",
-        ]
-    ),
-]
