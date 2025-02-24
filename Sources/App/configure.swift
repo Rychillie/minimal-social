@@ -7,7 +7,11 @@ public func configure(_ app: Application) async throws {
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
-    let pathToViews = URL(fileURLWithPath: #filePath).deletingLastPathComponent().appendingPathComponent("Views").relativePath
+    let pathToViews = URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent()
+        .appendingPathComponent("Views")
+        .relativePath
+    
     app.leaf.sources = LeafSources.singleSource(
         NIOLeafFiles(
             fileio: app.fileio,
